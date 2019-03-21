@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-mongoose.connect('mongodb://localhost/nodeappdatabase', {
+mongoose.connect('mongodb+srv://Marvelm:<password>@cluster0-ekl59.mongodb.net/test?retryWrites=true', {
     useMongoClient: true
 });
 
