@@ -40,13 +40,13 @@ const kenny = new User({
 
 kenny.manify(function(err, name) {
   if (err) throw err;
-  console.log('Twoje nowe imię to: ' + name);
+  console.log('Your new name is: ' + name);
 });
 
 kenny.save(function(err) {
   if (err) throw err;
 
-  console.log('Uzytkownik zapisany pomyslnie');
+  console.log('User saved successfully');
 });
 
 const benny = new User({
@@ -57,13 +57,13 @@ const benny = new User({
 
 benny.manify(function(err, name) {
   if (err) throw err;
-  console.log('Twoje nowe imię to: ' + name);
+  console.log('Your new name is: ' + name);
 });
 
 benny.save(function(err) {
   if (err) throw err;
 
-  console.log('Uzytkownik ' + benny.name +  ' zapisany pomyslnie');
+  console.log('User ' + benny.name +  ' saved successfully');
 });
 
 const mark = new User({
@@ -74,13 +74,13 @@ const mark = new User({
 
 mark.manify(function(err, name) {
   if (err) throw err;
-  console.log('Twoje nowe imię to: ' + name);
+  console.log('Your new name is: ' + name);
 });
 
 mark.save(function(err) {
   if (err) throw err;
 
-  console.log('Uzytkownik ' + mark.name +  ' zapisany pomyslnie');
+  console.log('User ' + mark.name +  ' saved successfully');
 });
 
 
@@ -90,7 +90,6 @@ User.find({}, function(err, res) {
 });
 
 const findAllUsers = function() {
-  // find all users
   return User.find({}, function(err, res) {
       if (err) throw err;
       console.log('Actual database records are ' + res);
@@ -98,7 +97,6 @@ const findAllUsers = function() {
 }
 
 const findSpecificRecord = function() {
-  // find specific record
   return User.find({ username: 'Kenny_the_boy' }, function(err, res) {
       if (err) throw err;
       console.log('Record you are looking for is ' + res);
@@ -106,7 +104,6 @@ const findSpecificRecord = function() {
 }
 
 const updadeUserPassword = function() {
-  // update user password
   return User.findOne({ username: 'Kenny_the_boy' })
       .then(function(user) {
           console.log('Old password is ' + user.password);
@@ -122,16 +119,14 @@ const updadeUserPassword = function() {
 }
 
 const updateUsername = function() {
-  // update username
   return User.findOneAndUpdate({ username: 'Benny_the_boy' }, { username: 'Benny_the_man' }, { new: true }, function(err, user) {
       if (err) throw err;
 
-      console.log('Nazwa uzytkownika po aktualizacji to ' + user.username);
+      console.log('Nazwa Usera po aktualizacji to ' + user.username);
   })
 }
 
 const findMarkAndDelete = function() {
-  // find specific user and delete
   return User.findOne({ username: 'Mark_the_boy' })
       .then(function(user) {
           return user.remove(function() {
@@ -141,7 +136,6 @@ const findMarkAndDelete = function() {
 }
 
 const findKennyAndDelete = function() {
-  // find specific user and delete
   return User.findOne({ username: 'Kenny_the_boy' })
       .then(function(user) {
           return user.remove(function() {
@@ -151,7 +145,6 @@ const findKennyAndDelete = function() {
 }
 
 const findBennyAndRemove = function() {
-  // find specific user and delete
   return User.findOneAndRemove({ username: 'Benny_the_man' })
       .then(function(user) {
           return user.remove(function() {
