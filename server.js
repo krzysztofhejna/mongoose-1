@@ -1,9 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-mongoose.connect('mongodb+srv://Marvelm:Fortepian123!@cluster0-ekl59.mongodb.net/test?retryWrites=true', {
-    useMongoClient: true
-});
+mongoose.connect('mongodb+srv://Marvelm:Fortepian123!@cluster0-ekl59.mongodb.net/test?retryWrites=true');
 
 const userSchema = new Schema({
   name: String,
